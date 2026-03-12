@@ -1,24 +1,81 @@
 # Seguimiento de Comandos Git - TechManage 1.0
 
-## Inicialización del repositorio (ya realizado)
+═══════════════════════════════════════════════════════════════════════════════
+                           HISTORIAL DE COMANDOS
+═══════════════════════════════════════════════════════════════════════════════
+
+## 2026-03-12 - Inicialización del repositorio
 git init
 
-## Enlazar repositorio local con remoto (ya realizado)
+## 2026-03-12 - Enlazar repositorio local con remoto
 git remote add origin https://github.com/DavidSantiagoAcuna/TrabajoIntermodular1.git
 
-## Estado actual del repositorio
-git status
-
-## Commands a ejecutar:
-
-# Añadir archivos al staging
+## 2026-03-12 - Añadir archivos al staging
 git add README.md modulos.txt seguimiento.txt
 
-# Hacer commit de los cambios
+## 2026-03-12 - Commit inicial
 git commit -m "Initial commit: README y archivos del proyecto"
 
-# Ver diferencias
-git diff
+## 2026-03-12 - Subir al repositorio remoto
+git push origin main
 
-# Ver historial de commits
-git log
+═══════════════════════════════════════════════════════════════════════════════
+                           COMANDOS ÚTILES
+═══════════════════════════════════════════════════════════════════════════════
+
+# Ver estado actual
+git status
+
+# Añadir todos los archivos nuevos
+git add .
+
+# Añadir archivo específico
+git add nombre_archivo
+
+# Commit con mensaje
+git commit -m "Descripcion del cambio"
+
+# Ver diferencias de un archivo
+git diff nombre_archivo
+
+# Ver diferencias staged
+git diff --cached
+
+# Ver historial
+git log --oneline
+
+# Ver historial detallado
+git log --pretty=format:"%h - %ad - %s" --date=short
+
+# Crear rama
+git branch nombre_rama
+
+# Cambiar de rama
+git checkout nombre_rama
+
+# Crear y cambiar a nueva rama
+git checkout -b nombre_rama
+
+# Fusionar rama
+git merge nombre_rama
+
+# Eliminar rama local
+git branch -d nombre_rama
+
+# Push de rama
+git push -u origin nombre_rama
+
+# Pull desde remoto
+git pull origin main
+
+# Ver ramas
+git branch -a
+
+# Eliminar archivo del staging
+git reset nombre_archivo
+
+# Deshacer último commit (manteniendo cambios)
+git reset --soft HEAD~1
+
+# Ver remote configurado
+git remote -v
