@@ -1,0 +1,45 @@
+# Historial de Conversación - TechManage 1.0
+
+## Proyecto
+**TechManage 1.0** - Sistema de gestión integral para tienda de informática
+- Control de inventario, gestión de clientes y registro de ventas
+- Tecnologías: Java, MySQL (JDBC), XML/XSD, Git
+
+## Carpeta del proyecto
+`C:\Users\acusa\OneDrive\Documents\GitHub\TrabajoIntermodular1`
+
+## Estructura actual
+```
+TrabajoIntermodular1/
+├── docs/
+│   ├── empleabilidad/
+│   └── sistemas/
+├── sql/
+├── xml/
+├── src/
+├── README.md
+├── seguimiento.txt
+└── modulos.txt
+```
+
+## Estado actual
+- Fase 1 incompleta: falta perfil profesional IPE
+- README.md creado
+- seguimiento.txt creado con comandos Git
+- 3 commits subidos a GitHub
+
+## Próximo paso
+Continuar Fase 1: completar perfil profesional IPE o pasar a Fase 2 (Base de Datos)
+
+## Comandos Git ya ejecutados (ver seguimiento.txt)
+- git init
+- git remote add origin
+- git add README.md modulos.txt seguimiento.txt
+- git commit -m "Initial commit..."
+- git push origin main
+- git add seguimiento.txt && commit + push (2 veces)
+
+## Notas importantes
+- El proyecto es para el ciclo DAW (múltiples módulos)
+- usa Java con JDBC para conectar a MySQL
+- GitHub: https://github.com/acusanty16-svg/TrabajoIntermodular1.git
