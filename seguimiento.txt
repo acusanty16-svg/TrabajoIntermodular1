@@ -1,0 +1,24 @@
+# Seguimiento de Comandos Git - TechManage 1.0
+
+## Inicialización del repositorio (ya realizado)
+git init
+
+## Enlazar repositorio local con remoto (ya realizado)
+git remote add origin https://github.com/DavidSantiagoAcuna/TrabajoIntermodular1.git
+
+## Estado actual del repositorio
+git status
+
+## Commands a ejecutar:
+
+# Añadir archivos al staging
+git add README.md modulos.txt seguimiento.txt
+
+# Hacer commit de los cambios
+git commit -m "Initial commit: README y archivos del proyecto"
+
+# Ver diferencias
+git diff
+
+# Ver historial de commits
+git log
