@@ -3,6 +3,10 @@
 ═══════════════════════════════════════════════════════════════════════════════
                            HISTORIAL DE COMANDOS
 ═══════════════════════════════════════════════════════════════════════════════
+                           NOTAS
+═══════════════════════════════════════════════════════════════════════════════
+- NO hacer git commit a menos que el usuario lo solicite explícitamente
+- historialConversacion.txt NO se sube a GitHub (solo referencia local)
 
 ## 2026-03-12 - Inicialización del repositorio
 git init
@@ -24,7 +28,14 @@ git add seguimiento.txt
 git commit -m "Update seguimiento.txt con fechas"
 git push origin main
 
-## 2026-03-12 - Crear historial de conversación
-git add historialConversacion.txt
-git commit -m "Add historialConversacion.txt"
-git push origin main
+## 2026-03-17 - Mejora definición del proyecto en README.md
+## (añadido: qué aplicación, para qué sirve, a quién va dirigida, qué problema resuelve)
+
+## 2026-03-17 - Fase 2
+## - Creación carpetas sql/documentacion y sql/modelajeSql
+## - analisis_datos.md: 7 entidades (productos, proveedores, productos_proveedores, tienda, inventario_Tienda, clientes, ventas)
+## - diagrama_ER.draw.io: modelo E/R con tablas intermedias
+## - docs/sistemas/informe_tecnico.md: 7 apartados completos
+## - docs/sistemas/evidencias/: carpeta creada para capturas
+
+

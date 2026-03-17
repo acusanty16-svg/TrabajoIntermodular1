@@ -1,0 +1,55 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.0.3 Chrome/140.0.7339.249 Electron/38.7.0 Safari/537.36" version="29.0.3">
+  <diagram name="Modelo Relacional - TechManage 1.0" id="modelo-relacional">
+    <mxGraphModel dx="443" dy="945" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="prod" value="PRODUCTOS&#xa;────────────────────────────────&#xa;id_producto INT PK (AI)&#xa;nombre VARCHAR(100) NOT NULL&#xa;descripcion TEXT&#xa;precio_venta DECIMAL(10,2) NOT NULL&#xa;categoria VARCHAR(50)&#xa;fecha_creacion DATETIME" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#60a917;strokeColor=#2D7600;fontStyle=0;align=left;spacingLeft=10;fontColor=#ffffff;" parent="1" vertex="1">
+          <mxGeometry x="40" y="40" width="240" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="prov" value="PROVEEDORES&#xa;────────────────────────────────&#xa;id_proveedor INT PK (AI)&#xa;nombre VARCHAR(100) NOT NULL&#xa;email VARCHAR(100) UNIQUE&#xa;telefono VARCHAR(20)&#xa;direccion VARCHAR(200)&#xa;contacto VARCHAR(100)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#60a917;strokeColor=#2D7600;fontStyle=0;align=left;spacingLeft=10;fontColor=#ffffff;" parent="1" vertex="1">
+          <mxGeometry x="40" y="220" width="240" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="prod_prov" value="PRODUCTOS_PROVEEDORES&#xa;────────────────────────────────&#xa;id_pp INT PK (AI)&#xa;id_producto INT FK (NOT NULL)&#xa;id_proveedor INT FK (NOT NULL)&#xa;precio_compra DECIMAL(10,2) NOT NULL&#xa;fecha_inicio DATE&#xa;──&#xa;UNIQUE(id_producto, id_proveedor)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=0;align=left;spacingLeft=10" parent="1" vertex="1">
+          <mxGeometry x="340" y="100" width="260" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="rel1a" value="" style="endArrow=classic;html=1;strokeWidth=2" parent="1" source="prod" target="prod_prov" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel1b" value="" style="endArrow=classic;html=1;strokeWidth=2" parent="1" source="prov" target="prod_prov" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="tienda" value="TIENDA&#xa;────────────────────────────────&#xa;id_tienda INT PK (AI)&#xa;nombre VARCHAR(100) NOT NULL&#xa;direccion VARCHAR(200)&#xa;telefono VARCHAR(20)&#xa;email VARCHAR(100)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=0;align=left;spacingLeft=10" parent="1" vertex="1">
+          <mxGeometry x="660" y="40" width="240" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="inv_tienda" value="INVENTARIO_TIENDA&#xa;────────────────────────────────&#xa;id_inventario INT PK (AI)&#xa;id_producto INT FK (NOT NULL)&#xa;id_tienda INT FK (NOT NULL)&#xa;cantidad_stock INT NOT NULL DEFAULT 0&#xa;stock_minimo INT NOT NULL DEFAULT 5&#xa;ultima_actualizacion DATETIME&#xa;──&#xa;UNIQUE(id_producto, id_tienda)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=0;align=left;spacingLeft=10" parent="1" vertex="1">
+          <mxGeometry x="660" y="180" width="260" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="rel2a" value="" style="endArrow=classic;html=1;strokeWidth=2" parent="1" source="prod" target="inv_tienda" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel2b" value="" style="endArrow=classic;html=1;strokeWidth=2" parent="1" source="tienda" target="inv_tienda" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="clientes" value="CLIENTES&#xa;────────────────────────────────&#xa;id_cliente INT PK (AI)&#xa;nombre VARCHAR(100) NOT NULL&#xa;email VARCHAR(100) UNIQUE&#xa;telefono VARCHAR(20)&#xa;direccion VARCHAR(200)&#xa;dni VARCHAR(20) UNIQUE NOT NULL&#xa;fecha_registro DATETIME" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontStyle=0;align=left;spacingLeft=10" parent="1" vertex="1">
+          <mxGeometry x="660" y="380" width="260" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="ventas" value="VENTAS&#xa;────────────────────────────────&#xa;id_venta INT PK (AI)&#xa;id_cliente INT FK&#xa;id_tienda INT FK (NOT NULL)&#xa;fecha_venta DATETIME&#xa;total DECIMAL(10,2) NOT NULL&#xa;metodo_pago VARCHAR(50) NOT NULL" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=0;align=left;spacingLeft=10" parent="1" vertex="1">
+          <mxGeometry x="660" y="580" width="260" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="rel3" value="" style="endArrow=classic;html=1;strokeWidth=2" parent="1" source="clientes" target="ventas" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel4" value="" style="endArrow=classic;html=1;strokeWidth=2" parent="1" source="tienda" target="ventas" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="notas" value="INTEGRIDAD REFERENCIAL&#xa;────────────────────────────────&#xa;&#xa;PRODUCTOS_PROVEEDORES:&#xa;- id_producto → PRODUCTOS (CASCADE)&#xa;- id_proveedor → PROVEEDORES (CASCADE)&#xa;&#xa;INVENTARIO_TIENDA:&#xa;- id_producto → PRODUCTOS (CASCADE)&#xa;- id_tienda → TIENDA (CASCADE)&#xa;&#xa;VENTAS:&#xa;- id_cliente → CLIENTES (SET NULL)&#xa;- id_tienda → TIENDA (RESTRICT)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#60a917;strokeColor=#2D7600;align=left;spacingLeft=10;spacingTop=10;fontColor=#ffffff;" parent="1" vertex="1">
+          <mxGeometry x="40" y="400" width="280" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="leyenda" value="LEYENDA&#xa;────────────────────────────────&#xa;PK = Clave Primaria&#xa;FK = Clave Foránea&#xa;AI = Auto Increment&#xa;UNIQUE = Valor único&#xa;NOT NULL = Obligatorio" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#60a917;strokeColor=#2D7600;align=left;spacingLeft=10;spacingTop=10;fontColor=#ffffff;" parent="1" vertex="1">
+          <mxGeometry x="40" y="640" width="200" height="100" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

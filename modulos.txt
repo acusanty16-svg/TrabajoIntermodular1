@@ -19,3 +19,4 @@ Requisitos clave: Enumera los 3 puntos más importantes que debe incluir el trab
 .
 Entregable estrella: ¿Cuál es el archivo o recurso principal que se debe subir a GitHub para este módulo?
 "
+primero antes que nada, como debo de llevar un seguimiento en GitHub de todo lo que vaya haciendo, tienes que crearme un seguimiento.txt donde vas a poner todos los comandos git que vayamos haciendo a tiempo real. por ejemplo el git init para crear y enlazar el repositorio con el local..

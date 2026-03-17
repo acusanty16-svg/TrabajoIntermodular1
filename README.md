@@ -2,15 +2,26 @@
 
 Sistema de gestión integral para una tienda de informática.
 
-## Descripción
+## Definición del Proyecto
 
-**TechManage 1.0** es una aplicación de escritorio diseñada para automatizar el control de inventario, la gestión de clientes y el registro de ventas de componentes y servicios técnicos en una tienda de informática.
+### ¿Qué aplicación va a hacer?
+**TechManage 1.0** es una aplicación de escritorio para la gestión integral de una tienda de informática.
 
-## Problema que resuelve
+### ¿Para qué sirve?
+Para automatizar y digitalizar tres procesos fundamentales:
+- Control de inventario de componentes y productos
+- Gestión de clientes (registro, histórico de compras)
+- Registro de ventas con generación de tickets
 
-- Evita la pérdida de información por registros manuales
-- Previene la falta de stock de componentes críticos
-- Agiliza la generación de tickets de venta
+### ¿A quién va dirigida?
+- **Dependientes/Vendedores**: Para registrar ventas y consultar stock
+- **Administradores**: Para gestionar inventario, clientes e informes
+
+### ¿Qué problema resuelve?
+- **Pérdida de información**: Sustituye hojas de cálculo y papel por una base de datos estructurada
+- **Falta de stock**: Alertas cuando los productos están por debajo del mínimo
+- **Proceso lento de ventas**: Generación automática de tickets y receipts
+- **Sin visibilidad**: Informes y estadísticas en tiempo real
 
 ## Características principales
 
