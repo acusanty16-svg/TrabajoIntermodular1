@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 06, 2026 at 11:02 PM
+-- Generation Time: Apr 06, 2026 at 11:11 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -36,6 +36,20 @@ CREATE TABLE `clientes` (
   `dni` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `clientes`
+--
+
+INSERT INTO `clientes` (`id_cliente`, `nombre`, `email`, `telefono`, `direccion`, `dni`) VALUES
+(1, 'Juan Pérez García', 'juan.perez@email.com', '666777888', 'Calle Luna 12, Madrid', '12345678A'),
+(2, 'María López Sánchez', 'maria.lopez@email.com', '677888999', 'Avenida Sol 34, Barcelona', '23456789B'),
+(3, 'Pedro Martínez Torres', 'pedro.martinez@email.com', '688999000', 'Plaza Mayor 5, Valencia', '34567890C'),
+(4, 'Ana García Rodríguez', 'ana.garcia@email.com', '699000111', 'Calle Norte 8, Bilbao', '45678901D'),
+(5, 'Carlos Sánchez Jiménez', 'carlos.sanchez@email.com', '600111222', 'Avenida Este 15, Sevilla', '56789012E'),
+(6, 'Laura Martínez Fernández', 'laura.martinez@email.com', '611222333', 'Calle Oeste 22, Madrid', '67890123F'),
+(7, 'Miguel Torres Ruiz', 'miguel.torres@email.com', '622333444', 'Avenida Sur 10, Bilbao', '78901234G'),
+(8, 'Sofia Castro López', 'sofia.castro@email.com', '633444555', 'Calle Centro 7, Valencia', '89012345H');
+
 -- --------------------------------------------------------
 
 --
@@ -51,6 +65,22 @@ CREATE TABLE `detalle_venta` (
   `total` decimal(10,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `detalle_venta`
+--
+
+INSERT INTO `detalle_venta` (`id_detalle`, `id_venta`, `id_producto`, `cantidad`, `precio`, `total`) VALUES
+(1, 1, 1, 1, 549.99, 549.99),
+(2, 1, 3, 1, 29.99, 29.99),
+(3, 1, 9, 2, 9.99, 19.99),
+(4, 2, 2, 1, 89.99, 89.99),
+(5, 3, 6, 1, 249.99, 249.99),
+(6, 3, 7, 1, 49.99, 49.99),
+(7, 4, 4, 1, 159.99, 159.99),
+(8, 5, 8, 1, 12.99, 12.99),
+(9, 5, 9, 1, 9.99, 9.99),
+(10, 6, 10, 1, 899.99, 899.99);
+
 -- --------------------------------------------------------
 
 --
@@ -64,6 +94,30 @@ CREATE TABLE `inventario_tienda` (
   `cantidad_stock` int(11) NOT NULL DEFAULT 0,
   `stock_minimo` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `inventario_tienda`
+--
+
+INSERT INTO `inventario_tienda` (`id_inventario`, `id_producto`, `id_tienda`, `cantidad_stock`, `stock_minimo`) VALUES
+(1, 1, 1, 15, 5),
+(2, 1, 2, 8, 3),
+(3, 1, 3, 12, 4),
+(4, 2, 1, 25, 10),
+(5, 2, 2, 20, 8),
+(6, 3, 1, 50, 15),
+(7, 3, 2, 30, 10),
+(8, 3, 3, 40, 12),
+(9, 4, 1, 10, 5),
+(10, 4, 2, 6, 3),
+(11, 5, 1, 100, 30),
+(12, 5, 2, 80, 25),
+(13, 6, 1, 5, 3),
+(14, 7, 2, 20, 8),
+(15, 8, 1, 200, 50),
+(16, 9, 1, 150, 40),
+(17, 10, 1, 0, 2),
+(18, 10, 2, 0, 2);
 
 -- --------------------------------------------------------
 
@@ -79,6 +133,22 @@ CREATE TABLE `productos` (
   `categoria` enum('disponible','sin stock') DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `productos`
+--
+
+INSERT INTO `productos` (`id_producto`, `nombre`, `descripcion`, `precio_venta`, `categoria`) VALUES
+(1, 'Portátil HP 15s', 'Portátil 15.6\" Intel Core i5 8GB RAM', 549.99, 'disponible'),
+(2, 'Teclado Mecánico RGB', 'Teclado gaming con luces RGB y switches rojos', 89.99, 'disponible'),
+(3, 'Ratón Inalámbrico Logitech', 'Ratón ergonómico wireless USB', 29.99, 'disponible'),
+(4, 'Monitor Samsung 24\"', 'Monitor Full HD 1920x1080 60Hz', 159.99, 'disponible'),
+(5, 'Disco SSD 500GB', 'Disco sólido interno SATA III 500GB', 59.99, 'disponible'),
+(6, 'Auriculares Sony WH-1000XM4', 'Auriculares noise cancelling premium', 249.99, 'disponible'),
+(7, 'Webcam HD 1080p', 'Cámara web Full HD con micrófono', 49.99, 'disponible'),
+(8, 'Pendrive 64GB USB 3.0', 'Memoria USB 3.0 velocidad alta', 12.99, 'disponible'),
+(9, 'Cable HDMI 2m', 'Cable HDMI 4K compatible', 9.99, 'disponible'),
+(10, 'Portátil Lenovo ThinkPad', 'Portátil 14\" i7 16GB RAM 512GB SSD', 899.99, 'sin stock');
+
 -- --------------------------------------------------------
 
 --
@@ -92,6 +162,23 @@ CREATE TABLE `productos_proveedores` (
   `precio_compra` decimal(10,2) NOT NULL,
   `fecha_inicio` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `productos_proveedores`
+--
+
+INSERT INTO `productos_proveedores` (`id_pp`, `id_producto`, `id_proveedor`, `precio_compra`, `fecha_inicio`) VALUES
+(1, 1, 1, 420.00, '2025-01-15'),
+(2, 1, 2, 415.00, '2025-02-01'),
+(3, 2, 3, 65.00, '2025-01-20'),
+(4, 3, 3, 18.00, '2025-02-10'),
+(5, 4, 1, 120.00, '2025-01-25'),
+(6, 5, 4, 42.00, '2025-03-01'),
+(7, 6, 2, 180.00, '2025-02-15'),
+(8, 7, 3, 32.00, '2025-03-10'),
+(9, 8, 4, 8.00, '2025-03-15'),
+(10, 9, 1, 6.50, '2025-03-20'),
+(11, 10, 2, 720.00, '2025-01-10');
 
 -- --------------------------------------------------------
 
@@ -108,6 +195,16 @@ CREATE TABLE `proveedores` (
   `contacto` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `proveedores`
+--
+
+INSERT INTO `proveedores` (`id_proveedor`, `nombre`, `email`, `telefono`, `direccion`, `contacto`) VALUES
+(1, 'TechSupply S.L.', 'info@techsupply.es', '611223344', 'Polígono Industrial Norte, Madrid', 'Carlos Martínez'),
+(2, 'GlobalComponents', 'contacto@globalcomponents.es', '622334455', 'Calle Industrial 25, Barcelona', 'Laura Sánchez'),
+(3, 'DigitalWholesale', 'ventas@digitalwholesale.es', '633445566', 'Avenida Logística 10, Valencia', 'Miguel Torres'),
+(4, 'ElectroMaster', 'comercial@electromaster.es', '644556677', 'Polígono Tecnológico 5, Sevilla', 'Ana Rodríguez');
+
 -- --------------------------------------------------------
 
 --
@@ -121,6 +218,15 @@ CREATE TABLE `tienda` (
   `telefono` varchar(20) NOT NULL,
   `email` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tienda`
+--
+
+INSERT INTO `tienda` (`id_tienda`, `nombre`, `direccion`, `telefono`, `email`) VALUES
+(1, 'TechManage Centro', 'Calle Mayor 123, Madrid', '912345678', 'centro@techmanage.es'),
+(2, 'TechManage Norte', 'Avenida Bilbao 45, Bilbao', '944567890', 'norte@techmanage.es'),
+(3, 'TechManage Sur', 'Calle Sevilla 78, Sevilla', '954321123', 'sur@techmanage.es');
 
 -- --------------------------------------------------------
 
@@ -136,6 +242,18 @@ CREATE TABLE `ventas` (
   `metodo_pago` enum('efectivo','tarjeta') NOT NULL,
   `total` decimal(10,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `ventas`
+--
+
+INSERT INTO `ventas` (`id_ventas`, `id_cliente`, `id_tienda`, `fecha_venta`, `metodo_pago`, `total`) VALUES
+(1, 1, 1, '2026-04-01 10:30:00', 'tarjeta', 639.98),
+(2, 2, 2, '2026-04-02 12:15:00', 'efectivo', 89.99),
+(3, 3, 1, '2026-04-03 16:45:00', 'tarjeta', 299.98),
+(4, 4, 3, '2026-04-04 11:20:00', 'tarjeta', 159.99),
+(5, NULL, 1, '2026-04-05 14:00:00', 'efectivo', 22.98),
+(6, 5, 2, '2026-04-06 09:30:00', 'tarjeta', 899.99);
 
 --
 -- Indexes for dumped tables
@@ -206,49 +324,49 @@ ALTER TABLE `ventas`
 -- AUTO_INCREMENT for table `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `detalle_venta`
 --
 ALTER TABLE `detalle_venta`
-  MODIFY `id_detalle` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_detalle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `inventario_tienda`
 --
 ALTER TABLE `inventario_tienda`
-  MODIFY `id_inventario` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_inventario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `productos_proveedores`
 --
 ALTER TABLE `productos_proveedores`
-  MODIFY `id_pp` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_pp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `proveedores`
 --
 ALTER TABLE `proveedores`
-  MODIFY `id_proveedor` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_proveedor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tienda`
 --
 ALTER TABLE `tienda`
-  MODIFY `id_tienda` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_tienda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `ventas`
 --
 ALTER TABLE `ventas`
-  MODIFY `id_ventas` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_ventas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables

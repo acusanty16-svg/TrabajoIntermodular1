@@ -40,5 +40,8 @@ git push origin main
 ##   - productos, proveedores, productos_proveedores
 ##   - tienda, inventario_tienda, clientes, ventas, detalle_venta
 ## - Exportación de script SQL a sql/modelajeSql/techmanage.sql
+## - Inserción de datos de ejemplo en todas las tablas
+## - 3 tiendas, 4 proveedores, 10 productos, 11 relaciones PP
+## - 18 registros inventario, 8 clientes, 6 ventas, 10 detalles
 
 
