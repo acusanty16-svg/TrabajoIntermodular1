@@ -16,14 +16,15 @@ Pensando un poco en algunas problematicas que afectan al sector de gestion entre
 
 ### ENTIDAD: PRODUCTOS
 
-| Atributo       | Tipo          | Descripción                |
-| -------------- | ------------- | -------------------------- |
-| id_producto    | INT (PK)      | Identificador único        |
-| nombre         | VARCHAR(100)  | Nombre del producto        |
-| descripcion    | TEXT          | Descripción del producto   |
-| precio_venta   | DECIMAL(10,2) | Precio de venta al cliente |
-| categoria      | VARCHAR(50)   | Categoría del producto     |
-| fecha_creacion | DATETIME      | Fecha de alta              |
+| Atributo     | Tipo          | Descripción                |
+| ------------ | ------------- | -------------------------- |
+| id_producto  | INT (PK)      | Identificador único        |
+| nombre       | VARCHAR(100)  | Nombre del producto        |
+| descripcion  | TEXT          | Descripción del producto   |
+| precio_venta | DECIMAL(10,2) | Precio de venta al cliente |
+| categoria    | ENUM          | Categoría del producto     |
+
+para la categoria decidí implementar un enum: "disponible" o "sin stock"
 
 ---
 
@@ -66,28 +67,26 @@ Pensando un poco en algunas problematicas que afectan al sector de gestion entre
 
 ### ENTIDAD: INVENTARIO_TIENDA (tabla intermedia)
 
-| Atributo             | Tipo     | Descripción            |
-| -------------------- | -------- | ---------------------- |
-| id_inventario        | INT (PK) | Identificador único    |
-| id_producto          | INT (FK) | Producto               |
-| id_tienda            | INT (FK) | Tienda                 |
-| cantidad_stock       | INT      | Stock actual           |
-| stock_minimo         | INT      | Stock mínimo de alerta |
-| ultima_actualizacion | DATETIME | Última actualización   |
+| Atributo       | Tipo     | Descripción            |
+| -------------- | -------- | ---------------------- |
+| id_inventario  | INT (PK) | Identificador único    |
+| id_productos   | INT (FK) | Producto               |
+| id_tienda      | INT (FK) | Tienda                 |
+| cantidad_stock | INT      | Stock actual           |
+| stock_minimo   | INT      | Stock mínimo de alerta |
 
 ---
 
 ### ENTIDAD: CLIENTES
 
-| Atributo       | Tipo         | Descripción          |
-| -------------- | ------------ | -------------------- |
-| id_cliente     | INT (PK)     | Identificador único  |
-| nombre         | VARCHAR(100) | Nombre completo      |
-| email          | VARCHAR(100) | Correo electrónico   |
-| telefono       | VARCHAR(20)  | Teléfono de contacto |
-| direccion      | VARCHAR(200) | Dirección            |
-| dni            | VARCHAR(20)  | DNI/NIF del cliente  |
-| fecha_registro | DATETIME     | Fecha de alta        |
+| Atributo   | Tipo         | Descripción          |
+| ---------- | ------------ | -------------------- |
+| id_cliente | INT (PK)     | Identificador único  |
+| nombre     | VARCHAR(100) | Nombre completo      |
+| email      | VARCHAR(100) | Correo electrónico   |
+| telefono   | VARCHAR(20)  | Teléfono de contacto |
+| direccion  | VARCHAR(200) | Dirección            |
+| dni        | VARCHAR(20)  | DNI/NIF del cliente  |
 
 ---
 
@@ -104,12 +103,26 @@ Pensando un poco en algunas problematicas que afectan al sector de gestion entre
 
 ---
 
+### ENTIDAD: DETALLE_VENTA
+
+| Atributo     | Tipo          | Descripción              |
+| ------------ | ------------- | ------------------------ |
+| id_detalle   | INT (PK)      | Identificador único      |
+| id_venta     | INT (FK)      | Venta a la que pertenece |
+| id_productos | INT (FK)      | Producto vendido         |
+| cantidad     | INT           | Cantidad comprada        |
+| precio       | DECIMAL(10,2) | Precio por unidad        |
+| Total        | DECIMAL(10,2) | unidad x precio          |
+
+---
+
 ## 3. Relaciones
 
 | Relación                | Tipo | Descripción                                  |
 | ----------------------- | ---- | -------------------------------------------- |
 | Productos - Proveedores | N:M  | Tabla intermedia productos_proveedores       |
 | Productos - Tienda      | N:M  | Tabla intermedia inventario_tienda           |
+| Ventas - Productos      | N:M  | Tabla intermedia Detalle_venta               |
 | Ventas - Clientes       | N:1  | Una venta puede ser de un cliente (opcional) |
 | Ventas - Tienda         | N:1  | Cada venta pertenece a una tienda            |
 
@@ -124,6 +137,10 @@ Un producto puede comprarse a varios proveedores(esto es un caso hipotetico porq
 #### Productos - Tienda (N:M)
 
 Un mismo producto puede estar disponible en varias tiendas y varias tiendas pueden tener el mismo producto(es un caso hipotetico porque la unicidad de cada producto es importante para gestionar el stock. Sin embargo con este metodo cada tienda puede tener unicidad entonces para una franquicia quizás hay que plantear otra metodología pero para varias tiendas independientes esta muy bien). La tabla que se ha creado es: "inventario_tienda"
+
+#### Ventas - Productos (N:M)
+
+Una venta puede tener muchos productos y de igual forma un productos puede venderse en diferentes tiendas. Ahora es trabajo de la base de datos poder explicar con detalle que tipo de venta se ha producido en un numero x de elementos
 
 #### Ventas - Clientes (N:1)
 

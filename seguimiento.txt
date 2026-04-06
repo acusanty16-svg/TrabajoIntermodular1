@@ -31,11 +31,14 @@ git push origin main
 ## 2026-03-17 - Mejora definición del proyecto en README.md
 ## (añadido: qué aplicación, para qué sirve, a quién va dirigida, qué problema resuelve)
 
-## 2026-03-17 - Fase 2
-## - Creación carpetas sql/documentacion y sql/modelajeSql
-## - analisis_datos.md: 7 entidades (productos, proveedores, productos_proveedores, tienda, inventario_Tienda, clientes, ventas)
-## - diagrama_ER.draw.io: modelo E/R con tablas intermedias
-## - docs/sistemas/informe_tecnico.md: 7 apartados completos
-## - docs/sistemas/evidencias/: carpeta creada para capturas
+## 2026-04-06 - Fase 2 (Continuación) - Correcciones y SQL
+## - Revisión analisis_datos.md: añadida entidad DETALLE_VENTA
+## - Actualización diagrama_ER.drawio con DETALLE_VENTA
+## - Actualización modelo_relacional.drawio con DETALLE_VENTA
+## - Eliminación de id_proveedor de INVENTARIO_TIENDA (no era necesario)
+## - Creación de tablas en phpMyAdmin local:
+##   - productos, proveedores, productos_proveedores
+##   - tienda, inventario_tienda, clientes, ventas, detalle_venta
+## - Exportación de script SQL a sql/modelajeSql/techmanage.sql
 
 
