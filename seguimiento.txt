@@ -43,5 +43,7 @@ git push origin main
 ## - Inserción de datos de ejemplo en todas las tablas
 ## - 3 tiendas, 4 proveedores, 10 productos, 11 relaciones PP
 ## - 18 registros inventario, 8 clientes, 6 ventas, 10 detalles
+## - git add + commit: "Fase 2: Añadidos datos de ejemplo a la base de datos MySQL"
+## - git push: d837b1d..8cabc7d
 
 
