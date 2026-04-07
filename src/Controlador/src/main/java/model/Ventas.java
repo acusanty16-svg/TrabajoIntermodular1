@@ -11,7 +11,7 @@ public class Ventas {
     private int idVentas;
     private int idCliente;
     private int idTienda;
-    private int fechaVenta;
+    private String fechaVenta;
     private MetodoPago metodoPago;
-    private int total;
+    private double total;
 }

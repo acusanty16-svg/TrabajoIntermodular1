@@ -45,6 +45,17 @@ git push origin main
 ## - 18 registros inventario, 8 clientes, 6 ventas, 10 detalles
 git add + commit: "Fase 2: Añadidos datos de ejemplo a la base de datos MySQL"
 git push
-## - Primera implementación de controlador de lógica dentro del proyecto con Java. Realización de todos los modelajes
+## 2026-04-07 - Fase 3 - Programación Java (Conexión JDBC + Métodos getAll)
+## - Implementación de ConexionSQL.java (conexión JDBC a MySQL)
+## - Implementación de ModeloController.java con métodos getAll():
+##   - getAllProducts() - lista de Productos
+##   - getAllProveedores() - lista de Proveedores
+##   - getAllClientes() - lista de Clientes
+##   - getAllTienda() - lista de Tienda
+##   - getAllVentas() - lista de Ventas
+## - Corrección de errores en getAllVentas() (if mal cerrado, fecha_venta tipo wrong)
+## - Decisión de diseño: Sin DAO tradicional, métodos directos en ModeloController
+## - Estructura: controller/ (ConexionSQL, ModeloController, ArchivoController)
+git add . && git commit -m "Fase 3: Implementación conexión JDBC y métodos getAll()" && git push
 
 

@@ -11,7 +11,7 @@ public class Tienda {
     private int idTienda;
     private String nombre;
     private String direccion;
-    private long telefono;
+    private String telefono;
     private String email;
 
 }

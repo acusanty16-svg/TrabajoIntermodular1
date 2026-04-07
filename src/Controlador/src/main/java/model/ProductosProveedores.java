@@ -11,7 +11,7 @@ public class ProductosProveedores {
     private int idPp;
     private int idProducto;
     private int idProveedor;
-    private long precioCompra;
+    private double precioCompra;
     private int fecha;
 
 }

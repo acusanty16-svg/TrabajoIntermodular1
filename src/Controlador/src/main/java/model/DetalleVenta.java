@@ -12,7 +12,7 @@ public class DetalleVenta {
     private int idVenta;
     private int idProductos;
     private int cantidad;
-    private long precio;
-    private long total;
+    private double precio;
+    private double total;
 
 }

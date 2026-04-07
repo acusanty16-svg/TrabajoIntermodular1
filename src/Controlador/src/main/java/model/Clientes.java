@@ -11,7 +11,7 @@ public class Clientes {
     private int idCliente;
     private String nombre;
     private String email;
-    private long telefono;
+    private String telefono;
     private String direccion;
     private String dni;
 }
