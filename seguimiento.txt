@@ -60,7 +60,6 @@ git push
 git add . && git commit -m "Fase 3: Implementación conexión JDBC y métodos getAll()" && git push
 
 ## 2026-04-08 - Fase 3/4 - Tablas Intermedias y XML
-## EVIDENCIAS:
 ## - Modelos con JAXB para exportación XML:
 ##   * InventarioTienda.java - List<Productos>, List<Tienda> + @XmlAttribute/@XmlElement
 ##   * ProductosProveedores.java - List<Productos>, List<Proveedores> + anotaciones JAXB
@@ -69,6 +68,20 @@ git add . && git commit -m "Fase 3: Implementación conexión JDBC y métodos ge
 ## - ModeloController.java:
 ##   * getAllInventarioTienda() - relaciona inventario con Productos y Tienda
 ##   * getAllDetalleVenta() - CORREGIDO: id_venta (no id_tienda), return lista
-## - Decisión: un solo XML con objetos relacionados (no IDs solos)
-## - Próximo: getAllProductosProveedores(), ArchivoController, Main.java
+
+## 2026-04-08 (Continuación) - Solución de errores y XML final
+## EVIDENCIAS:
+## - Errores corregidos:
+##   * NullPointerException driver MySQL → añadir mysql-connector-j en pom.xml
+##   * NullPointerException idCliente null → cambiar Integer a int con valor 0
+##   * SQLDataException DATE→Integer → rs.getString() y campo a String
+##   * IllegalAnnotationException JAXB+Lombok → @XmlAccessorType(FIELD)
+## - Cambios finales:
+##   * DetalleVenta: campo "total" → "subtotal"
+##   * Techmanage: nombres sin espacios (venta_con_productos, etc.)
+##   * Main.java: implementación simple con ArchivoController
+##   * ArchivoController: generarTechManageXML() con JAXB Marshaller
+## - Resultado: Techmanage.xml generado correctamente
+## - Estado: FASE 3 y FASE 4 COMPLETADAS
+git add . && git commit -m "Fase 3/4: XML generado con JAXB y errores corregidos" && git push
 

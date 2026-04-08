@@ -25,9 +25,9 @@ public class ProductosProveedores {
     @XmlAttribute
     private double precioCompra;
     @XmlAttribute
-    private int fecha;
+    private String fechaInicio;
 
-    ProductosProveedores(){
+    public ProductosProveedores(){
         proveedores = new ArrayList<>();
         productos = new ArrayList<>();
     }

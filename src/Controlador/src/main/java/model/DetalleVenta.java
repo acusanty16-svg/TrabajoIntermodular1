@@ -27,7 +27,7 @@ public class DetalleVenta {
     @XmlAttribute
     private double precio;
     @XmlAttribute
-    private double total;
+    private double subtotal;
 
     public DetalleVenta(){
         ventas = new ArrayList<>();

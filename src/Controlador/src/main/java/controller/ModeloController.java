@@ -118,7 +118,7 @@ public class ModeloController {
                     String enumValue = metodoString.toUpperCase().replace(" ", "_");
                     metodoPago = MetodoPago.valueOf(enumValue);
                 }
-                Integer idCliente = null;
+                int idCliente = 0;
                 if (rs.getObject("id_cliente")!=null){
                     idCliente = rs.getInt("id_cliente");
                 }
@@ -198,7 +198,7 @@ public class ModeloController {
                 detalle.setProductos(List.of(producto));
                 detalle.setCantidad(rs.getInt("cantidad"));
                 detalle.setPrecio(rs.getDouble("precio"));
-                detalle.setTotal(rs.getDouble("total"));
+                detalle.setSubtotal(rs.getDouble("total"));
 
                 lista.add(detalle);
             }
@@ -207,5 +207,38 @@ public class ModeloController {
             throw new RuntimeException(e);
         }
     }
+    public List<ProductosProveedores> getAllProProvee(){
+        List<Productos> todosLosProductos = getAllProducts();
+        List<Proveedores> todosLosProveedores = getAllProveedores();
+        List<ProductosProveedores> lista = new ArrayList<>();
 
+        Connection conexion = ConexionSQL.getConnection();
+        Statement stm = null;
+        try {
+            stm = conexion.createStatement();
+            ResultSet rs = stm.executeQuery("Select * from productos_proveedores");
+            while(rs.next()){
+                int idProducto = rs.getInt("id_producto");
+                int idProveedor = rs.getInt("id_proveedor");
+
+                Productos producto = todosLosProductos.stream()
+                        .filter(item->item.getIdProducto()==idProducto)
+                        .findFirst().orElse(null);
+                Proveedores proveedor = todosLosProveedores.stream()
+                        .filter(item->item.getIdProveedor()==idProveedor)
+                        .findFirst().orElse(null);
+                ProductosProveedores pp = new ProductosProveedores();
+                pp.setIdPp(rs.getInt("id_pp"));
+                pp.setProveedores(List.of(proveedor));
+                pp.setProductos(List.of(producto));
+                pp.setPrecioCompra(rs.getDouble("precio_compra"));
+                pp.setFechaInicio(rs.getString("fecha_inicio"));
+
+                lista.add(pp);
+            }
+            return lista;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
