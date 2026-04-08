@@ -137,4 +137,75 @@ public class ModeloController {
             throw new RuntimeException(e);
         }
     }
+    public List<InventarioTienda> getAllInventarioTienda() {
+        List<Productos> todosLosProductos = getAllProducts();
+        List<Tienda> todasLasTiendas = getAllTienda();
+        List<InventarioTienda> lista = new ArrayList<>();
+        Connection conexion = ConexionSQL.getConnection();
+        Statement stm = null;
+        try {
+            stm = conexion.createStatement();
+            ResultSet rs = stm.executeQuery("Select * from inventario_tienda");
+            while(rs.next()){
+                int idProducto = rs.getInt("id_producto");
+                int idTienda = rs.getInt("id_tienda");
+
+                Productos producto = todosLosProductos.stream()
+                        .filter(item->item.getIdProducto()==idProducto)
+                        .findFirst().orElse(null);
+                Tienda tienda = todasLasTiendas.stream()
+                        .filter(item->item.getIdTienda()==idTienda)
+                        .findFirst().orElse(null);
+                InventarioTienda inv = new InventarioTienda();
+                inv.setIdInventarioTienda(rs.getInt("id_inventario"));
+                inv.setProductos(List.of(producto));
+                inv.setTiendas(List.of(tienda));
+                inv.setCantidadStock(rs.getInt("cantidad_stock"));
+                inv.setStockMinimo(rs.getInt("stock_minimo"));
+
+                lista.add(inv);
+            }
+            return lista;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        }
+    public List<DetalleVenta> getAllDetalleVenta(){
+        List<Ventas> todasLasVentas = getAllVentas();
+        List<Productos> todosLosProductos = getAllProducts();
+        List<DetalleVenta> lista = new ArrayList<>();
+
+        Connection conexion = ConexionSQL.getConnection();
+        Statement stm = null;
+        try {
+            stm = conexion.createStatement();
+            ResultSet rs = stm.executeQuery("Select * from detalle_venta");
+
+            while(rs.next()){
+                int idVenta = rs.getInt("id_venta");
+                int idProducto = rs.getInt("id_producto");
+
+                Ventas venta = todasLasVentas.stream()
+                        .filter(item->item.getIdVentas()==idVenta)
+                        .findFirst().orElse(null);
+                Productos producto = todosLosProductos.stream()
+                        .filter(item->item.getIdProducto()==idProducto)
+                        .findFirst().orElse(null);
+
+                DetalleVenta detalle = new DetalleVenta();
+                detalle.setIdDetalle(rs.getInt("id_detalle"));
+                detalle.setVentas(List.of(venta));
+                detalle.setProductos(List.of(producto));
+                detalle.setCantidad(rs.getInt("cantidad"));
+                detalle.setPrecio(rs.getDouble("precio"));
+                detalle.setTotal(rs.getDouble("total"));
+
+                lista.add(detalle);
+            }
+            return lista;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 }

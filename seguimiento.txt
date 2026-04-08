@@ -45,6 +45,7 @@ git push origin main
 ## - 18 registros inventario, 8 clientes, 6 ventas, 10 detalles
 git add + commit: "Fase 2: Añadidos datos de ejemplo a la base de datos MySQL"
 git push
+
 ## 2026-04-07 - Fase 3 - Programación Java (Conexión JDBC + Métodos getAll)
 ## - Implementación de ConexionSQL.java (conexión JDBC a MySQL)
 ## - Implementación de ModeloController.java con métodos getAll():
@@ -58,4 +59,16 @@ git push
 ## - Estructura: controller/ (ConexionSQL, ModeloController, ArchivoController)
 git add . && git commit -m "Fase 3: Implementación conexión JDBC y métodos getAll()" && git push
 
+## 2026-04-08 - Fase 3/4 - Tablas Intermedias y XML
+## EVIDENCIAS:
+## - Modelos con JAXB para exportación XML:
+##   * InventarioTienda.java - List<Productos>, List<Tienda> + @XmlAttribute/@XmlElement
+##   * ProductosProveedores.java - List<Productos>, List<Proveedores> + anotaciones JAXB
+##   * DetalleVenta.java - List<Ventas>, List<Productos> + anotaciones JAXB
+##   * Techmanage.java - nueva clase raíz @XmlRootElement
+## - ModeloController.java:
+##   * getAllInventarioTienda() - relaciona inventario con Productos y Tienda
+##   * getAllDetalleVenta() - CORREGIDO: id_venta (no id_tienda), return lista
+## - Decisión: un solo XML con objetos relacionados (no IDs solos)
+## - Próximo: getAllProductosProveedores(), ArchivoController, Main.java
 
