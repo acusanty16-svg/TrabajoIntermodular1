@@ -85,6 +85,7 @@ public class AdminController implements Initializable {
     }
 
     private void initGUI() {
+        tablaProductos.getItems().clear();
         List<Productos> productos = controller.getAllProducts();
         tablaProductos.getItems().addAll(productos);
         tablaProductos.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
@@ -120,37 +121,56 @@ public class AdminController implements Initializable {
             }
         });
         btnAgregar.setOnAction(event -> {
-            int idIngresado = Integer.parseInt(txtId.getText());
-            boolean existeId = tablaProductos.getItems().stream()
-                    .anyMatch(item->item.getIdProducto()==idIngresado);
-            if (existeId) {
+            btnAgregar.setDisable(true);
+            if (txtId.getText().isEmpty() || txtNombre.getText().isEmpty() ||
+                    txtPrecio.getText().isEmpty()) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error");
-                alert.setContentText("El ID " + idIngresado + " ya está registrado");
+                alert.setContentText("Por favor, complete todos los campos requeridos");
                 alert.show();
+                btnAgregar.setDisable(false);
+                return;
             }else{
-                int id = 0;
-                String nombre = txtNombre.getText();
-                String descripcion = txtDescripcion.getText();
-                Double precio = Double.valueOf(txtPrecio.getText());
-                Categoria categoria = Categoria.valueOf(txtCategoria.getText().toUpperCase());
-                Productos nuevo = new Productos(id,nombre,descripcion,precio,categoria);
-                controller.insertProducto(nuevo);
-                vaciarCampos();
-                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-                alert.setTitle("Exito");
-                alert.setContentText("El producto se ha agregado correctamente\nQuieres agregar mas elementos?");
-                alert.show();
-                alert.getButtonTypes().add(ButtonType.CLOSE);
-                Optional<ButtonType> result = alert.showAndWait();
-                if (result.get() == ButtonType.OK){
+                int idIngresado = Integer.parseInt(txtId.getText());
+                boolean existeId = tablaProductos.getItems().stream()
+                        .anyMatch(item->item.getIdProducto()==idIngresado);
+            if (existeId) {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Error");
+                    alert.setContentText("El ID " + idIngresado + " ya está registrado");
+                    alert.show();
+                    btnAgregar.setDisable(false);
+                }else{
+                    int id = 0;
+                    String nombre = txtNombre.getText();
+                    String descripcion = txtDescripcion.getText();
+                    Double precio = Double.valueOf(txtPrecio.getText());
+                    Categoria categoria = Categoria.valueOf(txtCategoria.getText().toUpperCase());
+                    Productos nuevo = new Productos(id,nombre,descripcion,precio,categoria);
+                    controller.insertProducto(nuevo);
                     vaciarCampos();
+                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                    alert.setTitle("Exito");
+                    alert.setContentText("El producto se ha agregado correctamente. Quieres agregar otro producto?");
+                    alert.getButtonTypes().add(ButtonType.CLOSE);
+                    Optional<ButtonType> result = alert.showAndWait();
+                    if (result.get() == ButtonType.OK){
+                        vaciarCampos();
+                        btnAgregar.setDisable(false);
+                    }
+                btnAgregar.setDisable(false);
                 }
-                configurarBotones(null);
             }
-
         });
         btnEditar.setOnAction(event -> {
+            if (txtId.getText().isEmpty() || txtNombre.getText().isEmpty() ||
+                    txtPrecio.getText().isEmpty()) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setContentText("Por favor, complete todos los campos requeridos");
+                alert.show();
+                return;
+            }
             int idIngresado = Integer.parseInt(txtId.getText());
             boolean existeId = tablaProductos.getItems().stream()
                     .anyMatch(item->item.getIdProducto()==idIngresado);
@@ -172,11 +192,19 @@ public class AdminController implements Initializable {
                 alert.setTitle("Editar");
                 alert.setContentText("El producto se ha editado correctamente, deberas actualizar");
                 alert.show();
+                vaciarCampos();
                 configurarBotones(null);
             }
 
         });
         btnEliminar.setOnAction(event -> {
+            if (txtId.getText().isEmpty()) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setContentText("Por favor, ingrese el ID del producto a eliminar");
+                alert.show();
+                return;
+            }
             int idIngresado = Integer.parseInt(txtId.getText());
             boolean existeId = tablaProductos.getItems().stream()
                     .anyMatch(item->item.getIdProducto()==idIngresado);
@@ -192,6 +220,7 @@ public class AdminController implements Initializable {
                 alert.setTitle("Error");
                 alert.setContentText("El id del usuario no se encuentra registrado");
                 alert.show();
+                vaciarCampos();
                 configurarBotones(null);
             }
         });
@@ -209,6 +238,7 @@ public class AdminController implements Initializable {
         archivoController.generarProveedoresXML();
         archivoController.generarTiendasXML();
         archivoController.generarVentasXML();
+        vaciarCampos();
     }
 
     private void vaciarCampos() {
@@ -217,7 +247,7 @@ public class AdminController implements Initializable {
         txtDescripcion.clear();
         txtPrecio.clear();
         txtCategoria.clear();
-        initGUI();
+        tablaProductos.getSelectionModel().clearSelection();
         configurarBotones(null);
     }
     private void configurarBotones(Productos seleccionados) {

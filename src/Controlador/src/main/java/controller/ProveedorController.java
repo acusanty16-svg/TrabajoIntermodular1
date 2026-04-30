@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -55,7 +56,7 @@ public class ProveedorController implements Initializable {
 
     private void instances() {
         colId.setCellValueFactory(new PropertyValueFactory<>("idInventarioTienda"));
-        colProducto.setCellValueFactory(new PropertyValueFactory<>("productos"));
+        colProducto.setCellValueFactory(new PropertyValueFactory<>("nombreProducto"));
         colStock.setCellValueFactory(new PropertyValueFactory<>("cantidadStock"));
         colStockMinimo.setCellValueFactory(new PropertyValueFactory<>("stockMinimo"));
     }
@@ -69,10 +70,41 @@ public class ProveedorController implements Initializable {
 
         btnActualizarStock.setOnAction(event -> {
             InventarioTienda seleccionado = tablaInventario.getSelectionModel().getSelectedItem();
-            if (seleccionado != null) {
-                System.out.println("Actualizar stock del producto");
-            } else {
-                System.out.println("Selecciona un producto primero");
+            if (seleccionado == null) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setContentText("Selecciona un producto de la tabla primero");
+                alert.showAndWait();
+                return;
+            }
+            if (txtStock.getText().isEmpty()) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setContentText("Ingresa el nuevo stock");
+                alert.showAndWait();
+                return;
+            }
+            try {
+                int nuevoStock = Integer.parseInt(txtStock.getText());
+                if (nuevoStock < 0) {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Error");
+                    alert.setContentText("El stock no puede ser negativo");
+                    alert.showAndWait();
+                    return;
+                }
+                seleccionado.setCantidadStock(nuevoStock);
+                controller.updateStockInventario(seleccionado);
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Éxito");
+                alert.setContentText("Stock actualizado correctamente");
+                alert.showAndWait();
+                txtStock.clear();
+            } catch (NumberFormatException e) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setContentText("Ingresa un número válido");
+                alert.showAndWait();
             }
         });
         btnActualizar.setOnAction(event -> {

@@ -29,15 +29,16 @@ public class ModeloController {
                         rs.getInt("id_producto"),
                         rs.getString("nombre"),
                         rs.getString("descripcion"),
-                        rs.getLong("precio_venta"),
+                        rs.getDouble("precio_venta"),
                         cat);
                 lista.add(p);
             }
             return lista;
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+throw new RuntimeException(e);
         }
     }
+
     public List<Proveedores> getAllProveedores(){
         List<Proveedores> lista = new ArrayList<>();
         Connection conexion = ConexionSQL.getConnection();
@@ -275,6 +276,52 @@ public class ModeloController {
         String sql = "DELETE FROM Productos WHERE id_producto = ?";
         try (PreparedStatement pstm = conexion.prepareStatement(sql)){
             pstm.setInt(1, idProducto);
+            pstm.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public int getStockProducto(int idProducto){
+        Connection conexion = ConexionSQL.getConnection();
+        String sql = "SELECT COALESCE(SUM(cantidad_stock), 0) as stock FROM inventario_tienda WHERE id_producto = ?";
+        try (PreparedStatement pstm = conexion.prepareStatement(sql)){
+            pstm.setInt(1, idProducto);
+            ResultSet rs = pstm.executeQuery();
+            if (rs.next()){
+                return rs.getInt("stock");
+            }
+            return 0;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public void actualizarStock(int idProducto, int nuevoStock){
+        Connection conexion = ConexionSQL.getConnection();
+        String sql = "UPDATE inventario_tienda SET cantidad_stock = ? WHERE id_producto = ?";
+        try (PreparedStatement pstm = conexion.prepareStatement(sql)){
+            pstm.setInt(1, nuevoStock);
+            pstm.setInt(2, idProducto);
+            pstm.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public void eliminarInventario(int idProducto){
+        Connection conexion = ConexionSQL.getConnection();
+        String sql = "DELETE FROM inventario_tienda WHERE id_producto = ?";
+        try (PreparedStatement pstm = conexion.prepareStatement(sql)){
+            pstm.setInt(1, idProducto);
+            pstm.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public void updateStockInventario(InventarioTienda inventario){
+        Connection conexion = ConexionSQL.getConnection();
+        String sql = "UPDATE inventario_tienda SET cantidad_stock = ? WHERE id_inventario = ?";
+        try (PreparedStatement pstm = conexion.prepareStatement(sql)){
+            pstm.setInt(1, inventario.getCantidadStock());
+            pstm.setInt(2, inventario.getIdInventarioTienda());
             pstm.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
