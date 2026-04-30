@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Productos>
+    <Producto idProducto="1" nombre="Portátil HP 15s" descripcion="Portátil 15.6&quot; Intel Core i5 8GB RAM"
+              precioVenta="549.0" categoria="DISPONIBLE"/>
+    <Producto idProducto="2" nombre="Teclado Mecánico RGB" descripcion="Teclado gaming con luces RGB y switches rojos"
+              precioVenta="89.0" categoria="DISPONIBLE"/>
+    <Producto idProducto="3" nombre="Ratón Inalámbrico Logitech" descripcion="Ratón ergonómico wireless USB"
+              precioVenta="29.0" categoria="DISPONIBLE"/>
+    <Producto idProducto="4" nombre="Monitor Samsung 24&quot;" descripcion="Monitor Full HD 1920x1080 60Hz"
+              precioVenta="159.0" categoria="DISPONIBLE"/>
+    <Producto idProducto="5" nombre="Disco SSD 500GB" descripcion="Disco sólido interno SATA III 500GB"
+              precioVenta="59.0" categoria="DISPONIBLE"/>
+    <Producto idProducto="6" nombre="Auriculares Sony WH-1000XM4" descripcion="Auriculares noise cancelling premium"
+              precioVenta="249.0" categoria="DISPONIBLE"/>
+    <Producto idProducto="7" nombre="Webcam HD 1080p" descripcion="Cámara web Full HD con micrófono" precioVenta="49.0"
+              categoria="DISPONIBLE"/>
+    <Producto idProducto="8" nombre="Pendrive 64GB USB 3.0" descripcion="Memoria USB 3.0 velocidad alta"
+              precioVenta="12.0" categoria="DISPONIBLE"/>
+    <Producto idProducto="9" nombre="Cable HDMI 2m" descripcion="Cable HDMI 4K compatible" precioVenta="9.0"
+              categoria="DISPONIBLE"/>
+    <Producto idProducto="10" nombre="Portátil Lenovo ThinkPad" descripcion="Portátil 14&quot; i7 16GB RAM 512GB SSD"
+              precioVenta="899.0" categoria="SIN_STOCK"/>
+</Productos>

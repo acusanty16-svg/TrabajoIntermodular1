@@ -3,6 +3,7 @@ package controller;
 import model.*;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -237,6 +238,44 @@ public class ModeloController {
                 lista.add(pp);
             }
             return lista;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    
+    public void insertProducto(Productos producto){
+        Connection conexion = ConexionSQL.getConnection();
+        String sql = "INSERT INTO Productos (nombre, descripcion, precio_venta, categoria) VALUES (?, ?, ?, ?)";
+        try (PreparedStatement pstm = conexion.prepareStatement(sql)){
+            pstm.setString(1, producto.getNombre());
+            pstm.setString(2, producto.getDescripcion());
+            pstm.setDouble(3, producto.getPrecioVenta());
+            pstm.setString(4, producto.getCategoria() != null ? producto.getCategoria().name() : null);
+            pstm.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public void updateProducto(Productos producto){
+        Connection conexion = ConexionSQL.getConnection();
+        String sql = "UPDATE Productos SET nombre = ?, descripcion = ?, precio_venta = ?, categoria = ? WHERE id_producto = ?";
+        try (PreparedStatement pstm = conexion.prepareStatement(sql)){
+            pstm.setString(1, producto.getNombre());
+            pstm.setString(2, producto.getDescripcion());
+            pstm.setDouble(3, producto.getPrecioVenta());
+            pstm.setString(4, producto.getCategoria() != null ? producto.getCategoria().name() : null);
+            pstm.setInt(5, producto.getIdProducto());
+            pstm.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public void deleteProducto(int idProducto){
+        Connection conexion = ConexionSQL.getConnection();
+        String sql = "DELETE FROM Productos WHERE id_producto = ?";
+        try (PreparedStatement pstm = conexion.prepareStatement(sql)){
+            pstm.setInt(1, idProducto);
+            pstm.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

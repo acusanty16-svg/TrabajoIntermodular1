@@ -69,14 +69,7 @@ git add . && git commit -m "Fase 3: Implementación conexión JDBC y métodos ge
 ##   * getAllInventarioTienda() - relaciona inventario con Productos y Tienda
 ##   * getAllDetalleVenta() - CORREGIDO: id_venta (no id_tienda), return lista
 
-## 2026-04-08 (Continuación) - Solución de errores y XML final
-## EVIDENCIAS:
-## - Errores corregidos:
-##   * NullPointerException driver MySQL → añadir mysql-connector-j en pom.xml
-##   * NullPointerException idCliente null → cambiar Integer a int con valor 0
-##   * SQLDataException DATE→Integer → rs.getString() y campo a String
-##   * IllegalAnnotationException JAXB+Lombok → @XmlAccessorType(FIELD)
-## - Cambios finales:
+## 2026-04-08 (Continuación) - XML final
 ##   * DetalleVenta: campo "total" → "subtotal"
 ##   * Techmanage: nombres sin espacios (venta_con_productos, etc.)
 ##   * Main.java: implementación simple con ArchivoController
@@ -84,4 +77,49 @@ git add . && git commit -m "Fase 3: Implementación conexión JDBC y métodos ge
 ## - Resultado: Techmanage.xml generado correctamente
 ## - Estado: FASE 3 y FASE 4 COMPLETADAS
 git add . && git commit -m "Fase 3/4: XML generado con JAXB y errores corregidos" && git push
+
+## 2026-04-30 - Fase 5: JavaFX (Interfaz Gráfica)
+## - Configuración de JavaFX en pom.xml:
+##   * Dependencias: javafx-controls, javafx-fxml (24.0.1)
+##   * Plugin: javafx-maven-plugin (0.0.8)
+## - Creación de estructura de carpetas:
+##   * src/main/java/view/ (vistas FXML)
+##   * src/main/java/controllerfx/ (controllers JavaFX)
+##   * src/main/resources/org/example/controlador/ (FXMLs)
+## - module-info.java CREADO Y ELIMINADO (problemas con JAXB)
+## - Creación de vistas FXML:
+##   * login-view.fxml - Formulario de login
+##   * admin-view.fxml - Panel de admin con tabla CRUD
+##   * client-view.fxml - Panel de cliente
+##   * proveedor-view.fxml - Panel de proveedor
+## - Controllers JavaFX implementados:
+##   * TechmanageFX.java - Application principal
+##   * LoginController.java - Validación de usuarios
+##   * AdminController.java - CRUD completo productos
+##   * ClienteController.java - Ver productos
+##   * ProveedorController.java - Ver inventario
+## - Datos de login (Login.txt):
+##   * 20 usuarios: admin1-7, cliente1-7, proveedor1-6
+##   * Formato: usuario,contraseña,TIPO
+## - Enum Login.java para tipos de usuario:
+##   * ADMINISTRADOR, CLIENTE, PROVEEDOR
+## - Métodos CRUD en ModeloController.java:
+##   * insertProducto() - Insertar producto
+##   * updateProducto() - Actualizar producto
+##   * deleteProducto() - Eliminar producto
+## - Sistema de selección en AdminController:
+##   * Listener que auto-llena TextFields al seleccionar producto
+##   * Botones habilitad/deshabilitados según selección
+##   * btnAgregar: Solo sin selección
+##   * btnEditar/Eliminar: Solo con selección
+## - Errores corregidos:
+##   * Error JAXB: "package javax.xml.bind.annotation not visible" → Eliminado module-info.java
+##   * Error FXML: "Location is not set" → Ruta correcta "/org/example/controlador/"
+##   * Error enum MySQL: "Data truncated for category" → Cambiado a mayúsculas
+##   * NumberFormatException: TextFields vacíos → Implementado listener de selección
+## - Wrapper classes para XML:
+##   * ListaClientes.java, ListaProductos.java
+##   * ListaProveedores.java, ListaTiendas.java, ListaVentas.java
+## - Estado: FASE 5 COMPLETADA (JavaFX básico funcionando)
+git add . && git commit -m "Fase 5: Implementación JavaFX con interfaz gráfica" && git push
 

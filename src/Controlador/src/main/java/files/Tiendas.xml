@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Tiendas>
+    <Tienda idTienda="1" nombre="TechManage Centro" direccion="Calle Mayor 123, Madrid" telefono="912345678"
+            email="centro@techmanage.es"/>
+    <Tienda idTienda="2" nombre="TechManage Norte" direccion="Avenida Bilbao 45, Bilbao" telefono="944567890"
+            email="norte@techmanage.es"/>
+    <Tienda idTienda="3" nombre="TechManage Sur" direccion="Calle Sevilla 78, Sevilla" telefono="954321123"
+            email="sur@techmanage.es"/>
+</Tiendas>

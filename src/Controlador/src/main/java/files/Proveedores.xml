@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Proveedores>
+    <Proveedor idProveedor="1" nombre="TechSupply S.L." email="info@techsupply.es" telefono="611223344"
+               direccion="Polígono Industrial Norte, Madrid" contacto="Carlos Martínez"/>
+    <Proveedor idProveedor="2" nombre="GlobalComponents" email="contacto@globalcomponents.es" telefono="622334455"
+               direccion="Calle Industrial 25, Barcelona" contacto="Laura Sánchez"/>
+    <Proveedor idProveedor="3" nombre="DigitalWholesale" email="ventas@digitalwholesale.es" telefono="633445566"
+               direccion="Avenida Logística 10, Valencia" contacto="Miguel Torres"/>
+    <Proveedor idProveedor="4" nombre="ElectroMaster" email="comercial@electromaster.es" telefono="644556677"
+               direccion="Polígono Tecnológico 5, Sevilla" contacto="Ana Rodríguez"/>
+</Proveedores>

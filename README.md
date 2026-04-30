@@ -45,8 +45,7 @@ TrabajoIntermodular1/
 │   ├── empleabilidad/
 │   └── sistemas/
 ├── sql/               # Scripts de base de datos
-├── xml/               # Esquemas XML/XSD
-├── src/               # Código fuente Java
+├── src/               # Código fuente Java y XML
 └── README.md          # Este archivo
 ```
 
