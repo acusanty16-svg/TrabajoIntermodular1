@@ -1,15 +1,1 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<Ventas>
-    <Venta idVentas="1" idCliente="1" idTienda="1" fechaVenta="2026-04-01 10:30:00" metodoPago="TARJETA"
-           total="639.98"/>
-    <Venta idVentas="2" idCliente="2" idTienda="2" fechaVenta="2026-04-02 12:15:00" metodoPago="EFECTIVO"
-           total="89.99"/>
-    <Venta idVentas="3" idCliente="3" idTienda="1" fechaVenta="2026-04-03 16:45:00" metodoPago="TARJETA"
-           total="299.98"/>
-    <Venta idVentas="4" idCliente="4" idTienda="3" fechaVenta="2026-04-04 11:20:00" metodoPago="TARJETA"
-           total="159.99"/>
-    <Venta idVentas="5" idCliente="0" idTienda="1" fechaVenta="2026-04-05 14:00:00" metodoPago="EFECTIVO"
-           total="22.98"/>
-    <Venta idVentas="6" idCliente="5" idTienda="2" fechaVenta="2026-04-06 09:30:00" metodoPago="TARJETA"
-           total="899.99"/>
-</Ventas>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Ventas><Venta idVentas="1" idCliente="1" idTienda="1" fechaVenta="2026-04-01 10:30:00" metodoPago="TARJETA" total="639.98"/><Venta idVentas="2" idCliente="2" idTienda="2" fechaVenta="2026-04-02 12:15:00" metodoPago="EFECTIVO" total="89.99"/><Venta idVentas="3" idCliente="3" idTienda="1" fechaVenta="2026-04-03 16:45:00" metodoPago="TARJETA" total="299.98"/><Venta idVentas="4" idCliente="4" idTienda="3" fechaVenta="2026-04-04 11:20:00" metodoPago="TARJETA" total="159.99"/><Venta idVentas="5" idCliente="0" idTienda="1" fechaVenta="2026-04-05 14:00:00" metodoPago="EFECTIVO" total="22.98"/><Venta idVentas="6" idCliente="5" idTienda="2" fechaVenta="2026-04-06 09:30:00" metodoPago="TARJETA" total="899.99"/></Ventas>

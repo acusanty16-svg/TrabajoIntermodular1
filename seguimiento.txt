@@ -123,3 +123,71 @@ git add . && git commit -m "Fase 3/4: XML generado con JAXB y errores corregidos
 ## - Estado: FASE 5 COMPLETADA (JavaFX básico funcionando)
 git add . && git commit -m "Fase 5: Implementación JavaFX con interfaz gráfica" && git push
 
+## 2026-04-30 (Continuación) - Correcciones y mejoras en JavaFX
+
+## AdminController.java - Correcciones
+## - Error: "Stage already visible" (doble clic en botón) → Añadido btnAgregar.setDisable(true/false)
+## - Error: NumberFormatException (campos vacíos) → Añadida validación de campos vacíos
+## - Vaciar campos después de operaciones → Añadido vaciarCampos()
+## - Datos repetidos en tabla → Añadido tablaProductos.getItems().clear() en initGUI()
+## - Error btnAgregar cuando ID duplicado → Añadido btnAgregar.setDisable(false) en caso de error
+
+## ProveedorController.java
+## - btnActualizarStock implementado:
+##   * Validar selección de producto
+##   * Validar campo stock no vacío
+##   * Validar número válido
+##   * Actualizar stock en MySQL
+##   * Alert de éxito/error
+## - Nuevo método: updateStockInventario() en ModeloController
+
+## ClienteController.java
+## - btnComprar implementado:
+##   * Lista carrito (ArrayList<Productos>)
+##   * Validar selección de producto
+##   * TextInputDialog para cantidad
+##   * Validarstock disponible
+##   * Validar cantidad > 0
+##   * Actualizar stock en MySQL
+##   * Eliminar inventario si stock = 0
+##   * Alert de éxito/error
+## - btnVerCarrito implementado:
+##   * Mostrar contenido del carrito
+##   * Calcular total
+##   * Alert si vacío
+## - Métodos añadidos en ModeloController:
+##   * getStockProducto() - Obtener stock de producto
+##   * actualizarStock() - Actualizar stock
+##   * eliminarInventario() - Eliminar registro si stock = 0
+
+## 2026-05-01 - Correcciones y mejoras finales ClienteController
+
+## Problema identificado: Stock global incorrecto
+## - inventario_tienda tenía MÚLTIPLES registros por producto (varias tiendas)
+## - getStockProducto() sumaba todos los registros → valores incorrectos (ej: 700+700+700=2100)
+## - actualizarStock() afectaba a todos los registros a la vez
+
+## Solución aplicada:
+## 1. Base de datos: Eliminados registros duplicados en inventario_tienda
+##    - Quedó 1 solo registro por producto (stock global)
+##    - Ahora muestra 700 unidades correctas en lugar de 2100
+## 2. ClienteController.java:
+##    - Corregido tipo TableColumn: de String a Integer para colUnidades
+##    - Implementada CellFactory personalizada para mostrar stock dinámico
+##    - Añadido tablaProductos.refresh() después de comprar
+## 3. ModeloController.java:
+##    - Corregido getAllProducts(): rs.getLong改为 rs.getDouble para precio_venta
+## 4. btnVerCarrito implementado completamente:
+##    - Muestra productos agrupados con cantidad
+##    - Calcula subtotal por producto
+##    - Muestra total global de la compra
+##    - Alerta si el carrito está vacío
+##    - Usa HashMap para agrupar productos duplicados
+
+## Estado final: PROYECTO COMPLETADO
+## - Login funcionando
+## - Admin con CRUD completo
+## - Cliente puede ver productos, stock y comprar
+## - Proveedor puede actualizar stock
+## - XMLs se generan automáticamente
+
