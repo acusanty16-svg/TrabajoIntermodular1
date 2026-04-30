@@ -31,4 +31,11 @@ public class InventarioTienda {
         productos = new ArrayList<>();
         tiendas = new ArrayList<>();
     }
+
+    public String getNombreProducto() {
+        if (productos != null && !productos.isEmpty()) {
+            return productos.get(0).getNombre();
+        }
+        return "";
+    }
 }

@@ -23,5 +23,5 @@ public class Productos {
     private double precioVenta;
     @XmlAttribute
     private Categoria categoria;
-
+    
 }
