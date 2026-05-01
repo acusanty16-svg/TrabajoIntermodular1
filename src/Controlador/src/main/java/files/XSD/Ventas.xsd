@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:element name="Ventas">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Venta" minOccurs="0" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:attribute name="idVentas" type="xs:int" use="required"/>
+                        <xs:attribute name="idCliente" type="xs:int"/>
+                        <xs:attribute name="idTienda" type="xs:int" use="required"/>
+                        <xs:attribute name="fechaVenta" type="xs:string"/>
+                        <xs:attribute name="metodoPago" type="xs:string"/>
+                        <xs:attribute name="total" type="xs:double"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>

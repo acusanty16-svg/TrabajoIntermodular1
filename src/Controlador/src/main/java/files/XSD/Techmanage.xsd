@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:element name="Techmanage">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Venta_con_Productos" minOccurs="0" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Ventas" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:attribute name="idVentas" type="xs:int" use="required"/>
+                                    <xs:attribute name="idCliente" type="xs:int"/>
+                                    <xs:attribute name="idTienda" type="xs:int"/>
+                                    <xs:attribute name="fechaVenta" type="xs:string"/>
+                                    <xs:attribute name="metodoPago" type="xs:string"/>
+                                    <xs:attribute name="total" type="xs:double"/>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="Productos" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:attribute name="idProducto" type="xs:int" use="required"/>
+                                    <xs:attribute name="nombre" type="xs:string"/>
+                                    <xs:attribute name="descripcion" type="xs:string"/>
+                                    <xs:attribute name="precioVenta" type="xs:double"/>
+                                    <xs:attribute name="categoria" type="xs:string"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="idDetalle" type="xs:int" use="required"/>
+                        <xs:attribute name="cantidad" type="xs:int"/>
+                        <xs:attribute name="precio" type="xs:double"/>
+                        <xs:attribute name="subtotal" type="xs:double"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>
