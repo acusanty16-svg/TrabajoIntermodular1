@@ -191,3 +191,64 @@ git add . && git commit -m "Fase 5: Implementación JavaFX con interfaz gráfica
 ## - Proveedor puede actualizar stock
 ## - XMLs se generan automáticamente
 
+## 2026-05-01 - Fase 4: XSD y Fase 6: Empleabilidad
+
+## XSD - Validación de XML
+## - Creada carpeta files/XSD/ con 6 esquemas XSD:
+##   * Productos.xsd - Valida estructura de productos
+##   * Clientes.xsd - Valida estructura de clientes
+##   * Proveedores.xsd - Valida estructura de proveedores
+##   * Ventas.xsd - Valida estructura de ventas
+##   * Tiendas.xsd - Valida estructura de tiendas
+##   * Techmanage.xsd - Valida estructura compleja con anidación
+## - Ubicación: src/Controlador/src/main/java/files/XSD/
+git add . && git commit -m "Fase 4: Añadidos archivos XSD para validar los XML del proyecto" && git push
+
+## Fase 6 - Itinerario de Empleabilidad
+## - Creada documentación en docs/empleabilidad/:
+##   * busqueda_empleo.md - Guía de búsqueda de empleo
+##   * elaboracion_cv.md - Cómo elaborar un currículum vitae
+##   * entrevistas_trabajo.md - Recursos para entrevistas
+##   * presentacion_profesional.md - Técnicas de presentación
+##   * bolsas_empleo.md - Portales de empleo y recursos
+##   * carta_presentacion.md - Modelos de carta de presentación
+##   * plan_insercion.md - Plan de acción para inserción laboral
+git add . && git commit -m "Fase 6: Documentación de empleabilidad y búsqueda de empleo" && git push
+
+## 2026-05-01 - Fase 7: Revisión Final
+
+## Revisión de GitHub
+## - Commits coherentes con mensajes claros en español
+## - Estructura de carpetas organizada:
+##   * docs/ (empleabilidad, sistemas)
+##   * sql/ (documentacion, modelajeSql)
+##   * src/ (código Java y recursos)
+## - README.md completo con definición del proyecto
+## - Documentación técnica en docs/sistemas/
+## - Documentación de empleabilidad completa
+## - Archivos XML y XSD para validación de datos
+
+## Estado final del proyecto: COMPLETADO
+## ---------------------------------------------------------------------
+## | Fase  | Descripción                           | Estado      |
+## ---------------------------------------------------------------------
+## |   1   | Idea y planteamiento                  | ✓ Completado |
+## |   2   | Diseño (BBDD + Sistemas)             | ✓ Completado |
+## |   3   | Desarrollo (Java + JDBC + POO)       | ✓ Completado |
+## |   4   | Datos estructurados (XML + XSD)      | ✓ Completado |
+## |   5   | Entorno real (JavaFX)                 | ✓ Completado |
+## |   6   | Perfil profesional (Empleabilidad)   | ✓ Completado |
+## |   7   | Limpieza final                       | ✓ Completado |
+## ---------------------------------------------------------------------
+
+## Tecnologías utilizadas en el proyecto
+## - Java + JavaFX (interfaz gráfica)
+## - MySQL + JDBC (base de datos)
+## - XML + XSD (datos estructurados)
+## - Maven (gestión de dependencias)
+## - Git + GitHub (control de versiones)
+
+## Aplicación desarrollada: TechManage 1.0
+## Sistema de gestión integral para tienda de informática
+## con gestión de inventario, clientes, proveedores, ventas e inventario.
+
