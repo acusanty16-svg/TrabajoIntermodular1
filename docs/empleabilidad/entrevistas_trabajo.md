@@ -128,6 +128,3 @@ Prepárate para preguntar:
 - **Mock interviews** en LinkedIn
 
 ---
-
-**Fecha de creación**: Mayo 2026
-**Estado**: Documento en desarrollo

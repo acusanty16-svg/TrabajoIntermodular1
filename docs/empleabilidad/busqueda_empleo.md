@@ -87,6 +87,3 @@ Antes de comenzar la búsqueda, es importante definir:
 - Mentores de carrera en comunidades técnicas
 
 ---
-
-**Fecha de creación**: Mayo 2026
-**Estado**: Documento en desarrollo

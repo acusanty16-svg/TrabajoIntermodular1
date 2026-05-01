@@ -110,6 +110,3 @@ desarrollar aplicaciones de escritorio y gestionar bases de datos.
 **Personaliza siempre** tu CV para cada oferta. Los selecionadores pueden detectar un CV genérico rápidamente. Adapta las palabras clave a los requisitos de la oferta.
 
 ---
-
-**Fecha de creación**: Mayo 2026
-**Estado**: Documento en desarrollo

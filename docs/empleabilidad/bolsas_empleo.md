@@ -136,6 +136,3 @@ Para perfiles junior como desarrolladores DAM:
 - **Formación dual** o contratos en prácticas
 
 ---
-
-**Fecha de creación**: Mayo 2026
-**Estado**: Documento en desarrollo

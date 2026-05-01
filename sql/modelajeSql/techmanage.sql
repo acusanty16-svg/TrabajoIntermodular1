@@ -11,20 +11,19 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
-
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+SET NAMES utf8mb4;
 
 --
--- Database: `techmanage`
+-- Base de datos: `techmanage`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `clientes`
+-- Estructura de tabla para tabla `clientes`
 --
 
 CREATE TABLE `clientes` (
@@ -37,7 +36,7 @@ CREATE TABLE `clientes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `clientes`
+-- Volcado de datos para tabla `clientes`
 --
 
 INSERT INTO `clientes` (`id_cliente`, `nombre`, `email`, `telefono`, `direccion`, `dni`) VALUES
@@ -53,7 +52,7 @@ INSERT INTO `clientes` (`id_cliente`, `nombre`, `email`, `telefono`, `direccion`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `detalle_venta`
+-- Estructura de tabla para tabla `detalle_venta`
 --
 
 CREATE TABLE `detalle_venta` (
@@ -66,7 +65,7 @@ CREATE TABLE `detalle_venta` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `detalle_venta`
+-- Volcado de datos para tabla `detalle_venta`
 --
 
 INSERT INTO `detalle_venta` (`id_detalle`, `id_venta`, `id_producto`, `cantidad`, `precio`, `total`) VALUES
@@ -84,7 +83,7 @@ INSERT INTO `detalle_venta` (`id_detalle`, `id_venta`, `id_producto`, `cantidad`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `inventario_tienda`
+-- Estructura de tabla para tabla `inventario_tienda`
 --
 
 CREATE TABLE `inventario_tienda` (
@@ -96,7 +95,7 @@ CREATE TABLE `inventario_tienda` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `inventario_tienda`
+-- Volcado de datos para tabla `inventario_tienda`
 --
 
 INSERT INTO `inventario_tienda` (`id_inventario`, `id_producto`, `id_tienda`, `cantidad_stock`, `stock_minimo`) VALUES
@@ -122,7 +121,7 @@ INSERT INTO `inventario_tienda` (`id_inventario`, `id_producto`, `id_tienda`, `c
 -- --------------------------------------------------------
 
 --
--- Table structure for table `productos`
+-- Estructura de tabla para tabla `productos`
 --
 
 CREATE TABLE `productos` (
@@ -134,25 +133,25 @@ CREATE TABLE `productos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `productos`
+-- Volcado de datos para tabla `productos`
 --
 
 INSERT INTO `productos` (`id_producto`, `nombre`, `descripcion`, `precio_venta`, `categoria`) VALUES
-(1, 'Portátil HP 15s', 'Portátil 15.6\" Intel Core i5 8GB RAM', 549.99, 'disponible'),
+(1, 'Portátil HP 15s', 'Portátil 15.6" Intel Core i5 8GB RAM', 549.99, 'disponible'),
 (2, 'Teclado Mecánico RGB', 'Teclado gaming con luces RGB y switches rojos', 89.99, 'disponible'),
 (3, 'Ratón Inalámbrico Logitech', 'Ratón ergonómico wireless USB', 29.99, 'disponible'),
-(4, 'Monitor Samsung 24\"', 'Monitor Full HD 1920x1080 60Hz', 159.99, 'disponible'),
+(4, 'Monitor Samsung 24"', 'Monitor Full HD 1920x1080 60Hz', 159.99, 'disponible'),
 (5, 'Disco SSD 500GB', 'Disco sólido interno SATA III 500GB', 59.99, 'disponible'),
 (6, 'Auriculares Sony WH-1000XM4', 'Auriculares noise cancelling premium', 249.99, 'disponible'),
 (7, 'Webcam HD 1080p', 'Cámara web Full HD con micrófono', 49.99, 'disponible'),
 (8, 'Pendrive 64GB USB 3.0', 'Memoria USB 3.0 velocidad alta', 12.99, 'disponible'),
 (9, 'Cable HDMI 2m', 'Cable HDMI 4K compatible', 9.99, 'disponible'),
-(10, 'Portátil Lenovo ThinkPad', 'Portátil 14\" i7 16GB RAM 512GB SSD', 899.99, 'sin stock');
+(10, 'Portátil Lenovo ThinkPad', 'Portátil 14" i7 16GB RAM 512GB SSD', 899.99, 'sin stock');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `productos_proveedores`
+-- Estructura de tabla para tabla `productos_proveedores`
 --
 
 CREATE TABLE `productos_proveedores` (
@@ -164,7 +163,7 @@ CREATE TABLE `productos_proveedores` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `productos_proveedores`
+-- Volcado de datos para tabla `productos_proveedores`
 --
 
 INSERT INTO `productos_proveedores` (`id_pp`, `id_producto`, `id_proveedor`, `precio_compra`, `fecha_inicio`) VALUES
@@ -183,7 +182,7 @@ INSERT INTO `productos_proveedores` (`id_pp`, `id_producto`, `id_proveedor`, `pr
 -- --------------------------------------------------------
 
 --
--- Table structure for table `proveedores`
+-- Estructura de tabla para tabla `proveedores`
 --
 
 CREATE TABLE `proveedores` (
@@ -196,7 +195,7 @@ CREATE TABLE `proveedores` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `proveedores`
+-- Volcado de datos para tabla `proveedores`
 --
 
 INSERT INTO `proveedores` (`id_proveedor`, `nombre`, `email`, `telefono`, `direccion`, `contacto`) VALUES
@@ -208,7 +207,7 @@ INSERT INTO `proveedores` (`id_proveedor`, `nombre`, `email`, `telefono`, `direc
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tienda`
+-- Estructura de tabla para tabla `tienda`
 --
 
 CREATE TABLE `tienda` (
@@ -220,7 +219,7 @@ CREATE TABLE `tienda` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `tienda`
+-- Volcado de datos para tabla `tienda`
 --
 
 INSERT INTO `tienda` (`id_tienda`, `nombre`, `direccion`, `telefono`, `email`) VALUES
@@ -231,7 +230,7 @@ INSERT INTO `tienda` (`id_tienda`, `nombre`, `direccion`, `telefono`, `email`) V
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ventas`
+-- Estructura de tabla para tabla `ventas`
 --
 
 CREATE TABLE `ventas` (
@@ -244,7 +243,7 @@ CREATE TABLE `ventas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `ventas`
+-- Volcado de datos para tabla `ventas`
 --
 
 INSERT INTO `ventas` (`id_ventas`, `id_cliente`, `id_tienda`, `fecha_venta`, `metodo_pago`, `total`) VALUES
@@ -255,19 +254,21 @@ INSERT INTO `ventas` (`id_ventas`, `id_cliente`, `id_tienda`, `fecha_venta`, `me
 (5, NULL, 1, '2026-04-05 14:00:00', 'efectivo', 22.98),
 (6, 5, 2, '2026-04-06 09:30:00', 'tarjeta', 899.99);
 
+-- --------------------------------------------------------
+
 --
--- Indexes for dumped tables
+-- Índices para tablas volcadas
 --
 
 --
--- Indexes for table `clientes`
+-- Índices para tabla `clientes`
 --
 ALTER TABLE `clientes`
   ADD PRIMARY KEY (`id_cliente`),
   ADD UNIQUE KEY `dni` (`dni`);
 
 --
--- Indexes for table `detalle_venta`
+-- Índices para tabla `detalle_venta`
 --
 ALTER TABLE `detalle_venta`
   ADD PRIMARY KEY (`id_detalle`),
@@ -275,7 +276,7 @@ ALTER TABLE `detalle_venta`
   ADD KEY `fk_detalle_venta_producto` (`id_producto`);
 
 --
--- Indexes for table `inventario_tienda`
+-- Índices para tabla `inventario_tienda`
 --
 ALTER TABLE `inventario_tienda`
   ADD PRIMARY KEY (`id_inventario`),
@@ -283,13 +284,13 @@ ALTER TABLE `inventario_tienda`
   ADD KEY `fk_id_tienda` (`id_tienda`);
 
 --
--- Indexes for table `productos`
+-- Índices para tabla `productos`
 --
 ALTER TABLE `productos`
   ADD PRIMARY KEY (`id_producto`);
 
 --
--- Indexes for table `productos_proveedores`
+-- Índices para tabla `productos_proveedores`
 --
 ALTER TABLE `productos_proveedores`
   ADD PRIMARY KEY (`id_pp`),
@@ -297,108 +298,244 @@ ALTER TABLE `productos_proveedores`
   ADD KEY `fk_id_proveedor` (`id_proveedor`);
 
 --
--- Indexes for table `proveedores`
+-- Índices para tabla `proveedores`
 --
 ALTER TABLE `proveedores`
   ADD PRIMARY KEY (`id_proveedor`);
 
 --
--- Indexes for table `tienda`
+-- Índices para tabla `tienda`
 --
 ALTER TABLE `tienda`
   ADD PRIMARY KEY (`id_tienda`);
 
 --
--- Indexes for table `ventas`
+-- Índices para tabla `ventas`
 --
 ALTER TABLE `ventas`
   ADD PRIMARY KEY (`id_ventas`),
   ADD KEY `id_cliente` (`id_cliente`),
   ADD KEY `id_tienda` (`id_tienda`);
 
+-- --------------------------------------------------------
+
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT para tablas volcadas
 --
 
 --
--- AUTO_INCREMENT for table `clientes`
+-- AUTO_INCREMENT para tabla `clientes`
 --
 ALTER TABLE `clientes`
   MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `detalle_venta`
+-- AUTO_INCREMENT para tabla `detalle_venta`
 --
 ALTER TABLE `detalle_venta`
   MODIFY `id_detalle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT for table `inventario_tienda`
+-- AUTO_INCREMENT para tabla `inventario_tienda`
 --
 ALTER TABLE `inventario_tienda`
   MODIFY `id_inventario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
--- AUTO_INCREMENT for table `productos`
+-- AUTO_INCREMENT para tabla `productos`
 --
 ALTER TABLE `productos`
   MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT for table `productos_proveedores`
+-- AUTO_INCREMENT para tabla `productos_proveedores`
 --
 ALTER TABLE `productos_proveedores`
   MODIFY `id_pp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT for table `proveedores`
+-- AUTO_INCREMENT para tabla `proveedores`
 --
 ALTER TABLE `proveedores`
   MODIFY `id_proveedor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `tienda`
+-- AUTO_INCREMENT para tabla `tienda`
 --
 ALTER TABLE `tienda`
   MODIFY `id_tienda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `ventas`
+-- AUTO_INCREMENT para tabla `ventas`
 --
 ALTER TABLE `ventas`
   MODIFY `id_ventas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
+-- --------------------------------------------------------
+
 --
--- Constraints for dumped tables
+-- Restricciones para tablas volcadas
 --
 
 --
--- Constraints for table `detalle_venta`
+-- Restricciones para tabla `detalle_venta`
 --
 ALTER TABLE `detalle_venta`
   ADD CONSTRAINT `fk_detalle_venta_producto` FOREIGN KEY (`id_producto`) REFERENCES `productos` (`id_producto`),
   ADD CONSTRAINT `fk_detalle_venta_venta` FOREIGN KEY (`id_venta`) REFERENCES `ventas` (`id_ventas`);
 
 --
--- Constraints for table `inventario_tienda`
+-- Restricciones para tabla `inventario_tienda`
 --
 ALTER TABLE `inventario_tienda`
   ADD CONSTRAINT `fk_id_productos` FOREIGN KEY (`id_producto`) REFERENCES `productos` (`id_producto`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_id_tienda` FOREIGN KEY (`id_tienda`) REFERENCES `tienda` (`id_tienda`) ON UPDATE CASCADE;
 
 --
--- Constraints for table `productos_proveedores`
+-- Restricciones para tabla `productos_proveedores`
 --
 ALTER TABLE `productos_proveedores`
   ADD CONSTRAINT `fk_id_producto` FOREIGN KEY (`id_producto`) REFERENCES `productos` (`id_producto`),
   ADD CONSTRAINT `fk_id_proveedor` FOREIGN KEY (`id_proveedor`) REFERENCES `proveedores` (`id_proveedor`);
 
 --
--- Constraints for table `ventas`
+-- Restricciones para tabla `ventas`
 --
 ALTER TABLE `ventas`
   ADD CONSTRAINT `ventas_ibfk_1` FOREIGN KEY (`id_cliente`) REFERENCES `clientes` (`id_cliente`),
   ADD CONSTRAINT `ventas_ibfk_2` FOREIGN KEY (`id_tienda`) REFERENCES `tienda` (`id_tienda`);
+
+-- =====================================================
+-- CONSULTAS DE JOIN (MULTITABLA)
+-- =====================================================
+
+/* 1. Ver cada venta con datos del cliente y tienda */
+SELECT v.id_ventas, v.fecha_venta, v.total, c.nombre AS nombreCliente, t.nombre AS nombreTienda, t.direccion AS direccionTienda 
+FROM ventas v
+LEFT JOIN clientes c ON v.id_cliente = c.id_cliente
+JOIN tienda t ON v.id_tienda = t.id_tienda;
+
+-- 2. Ver detalles de cada venta con productos
+SELECT dv.id_detalle, dv.id_venta, dv.cantidad, dv.precio, dv.total, p.nombre AS nombreProducto, p.descripcion 
+FROM detalle_venta dv
+JOIN productos p ON dv.id_producto = p.id_producto
+JOIN ventas v ON dv.id_venta = v.id_ventas;
+
+-- 3. Ver inventario por tienda con nombre de producto
+SELECT i.id_inventario, p.nombre AS nombreProducto, t.nombre AS nombreTienda, i.cantidad_stock, i.stock_minimo 
+FROM inventario_tienda i
+JOIN productos p ON i.id_producto = p.id_producto
+JOIN tienda t ON i.id_tienda = t.id_tienda;
+
+-- 4. Ver productos con sus proveedores y precios de compra
+SELECT p.id_producto, p.nombre AS nombreProducto, p.precio_venta, pr.nombre AS nombreProveedor, pp.precio_compra, pp.fecha_inicio 
+FROM productos p
+JOIN productos_proveedores pp ON p.id_producto = pp.id_producto
+JOIN proveedores pr ON pp.id_proveedor = pr.id_proveedor;
+
+-- 5. Ver ventas completas con todos los datos
+SELECT v.id_ventas, v.fecha_venta, v.total AS totalVenta, v.metodo_pago, c.nombre AS cliente, c.dni, t.nombre AS tienda, t.direccion AS direccionTienda, p.nombre AS producto, dv.cantidad, dv.total AS subtotal 
+FROM ventas v
+LEFT JOIN clientes c ON v.id_cliente = c.id_cliente
+JOIN tienda t ON v.id_tienda = t.id_tienda
+JOIN detalle_venta dv ON v.id_ventas = dv.id_venta
+JOIN productos p ON dv.id_producto = p.id_producto;
+
+-- 6. Ver productos con mejor margen por proveedor
+SELECT p.nombre AS producto, p.precio_venta, pr.nombre AS proveedor, pp.precio_compra, (p.precio_venta - pp.precio_compra) AS margen
+FROM productos p
+JOIN productos_proveedores pp ON p.id_producto = pp.id_producto
+JOIN proveedores pr ON pp.id_proveedor = pr.id_proveedor
+ORDER BY margen DESC;
+
+-- =====================================================
+-- CONSULTAS DE BÚSQUEDA Y FILTROS
+-- =====================================================
+
+/* 7. Buscar cliente por nombre ( LIKE%) */
+SELECT * FROM clientes WHERE nombre LIKE '%Juan%';
+
+-- 8. Buscar producto por nombre
+SELECT * FROM productos WHERE nombre LIKE '%Portátil%';
+
+-- 9. Ver productos sin stock
+SELECT p.id_producto, p.nombre, p.categoria, t.nombre AS tienda, i.cantidad_stock
+FROM productos p
+JOIN inventario_tienda i ON p.id_producto = i.id_producto
+JOIN tienda t ON i.id_tienda = t.id_tienda
+WHERE i.cantidad_stock = 0;
+
+-- 10. Ver stock bajo mínimo
+SELECT p.nombre AS producto, t.nombre AS tienda, i.cantidad_stock, i.stock_minimo
+FROM inventario_tienda i
+JOIN productos p ON i.id_producto = p.id_producto
+JOIN tienda t ON i.id_tienda = t.id_tienda
+WHERE i.cantidad_stock < i.stock_minimo;
+
+-- 11. Ver ventas por fecha (rango)
+SELECT * FROM ventas WHERE fecha_venta BETWEEN '2026-04-01' AND '2026-04-05';
+
+-- 12. Ver ventas por método de pago
+SELECT * FROM ventas WHERE metodo_pago = 'tarjeta';
+
+-- =====================================================
+-- CONSULTAS DE ESTADÍSTICAS Y AGREGADOS
+-- =====================================================
+
+/* 13. Ver top clientes por compras (suma total) */
+SELECT c.id_cliente, c.nombre, c.email, SUM(v.total) AS totalGastado, COUNT(v.id_ventas) AS numVentas
+FROM clientes c
+JOIN ventas v ON c.id_cliente = v.id_cliente
+GROUP BY c.id_cliente, c.nombre, c.email
+ORDER BY totalGastado DESC;
+
+-- 14. Ver tienda con más ventas
+SELECT t.id_tienda, t.nombre AS nombreTienda, COUNT(v.id_ventas) AS numVentas, SUM(v.total) AS totalVentas
+FROM tienda t
+JOIN ventas v ON t.id_tienda = v.id_tienda
+GROUP BY t.id_tienda, t.nombre
+ORDER BY totalVentas DESC;
+
+-- 15. Ver productos más vendidos (por cantidad)
+SELECT p.id_producto, p.nombre, SUM(dv.cantidad) AS cantidadVendida, SUM(dv.total) AS totalVendido
+FROM productos p
+JOIN detalle_venta dv ON p.id_producto = dv.id_producto
+GROUP BY p.id_producto, p.nombre
+ORDER BY cantidadVendida DESC;
+
+-- 16. Ver proveedores de un producto
+SELECT p.nombre AS producto, pr.nombre AS proveedor, pp.precio_compra, pp.fecha_inicio
+FROM productos p
+JOIN productos_proveedores pp ON p.id_producto = pp.id_producto
+JOIN proveedores pr ON pp.id_proveedor = pr.id_proveedor
+WHERE p.id_producto = 1;
+
+-- 17. Ver gasto total por proveedor
+SELECT pr.id_proveedor, pr.nombre AS nombreProveedor, COUNT(pp.id_pp) AS numProductos, SUM(pp.precio_compra) AS gastoTotal
+FROM proveedores pr
+JOIN productos_proveedores pp ON pr.id_proveedor = pp.id_proveedor
+GROUP BY pr.id_proveedor, pr.nombre
+ORDER BY gastoTotal DESC;
+
+-- 18. Ver total de ventas por tienda
+SELECT t.nombre AS tienda, SUM(v.total) AS totalVentas
+FROM tienda t
+JOIN ventas v ON t.id_tienda = v.id_tienda
+GROUP BY t.nombre;
+
+-- 19. Ver promedio de venta
+SELECT AVG(total) AS promedioVenta FROM ventas;
+
+-- 20. Ver cantidad total de productos vendidos
+SELECT SUM(cantidad) AS totalProductosVendidos FROM detalle_venta;
+
+-- 21. Ver inventario total por producto (todas las tiendas)
+SELECT p.id_producto, p.nombre, SUM(i.cantidad_stock) AS stockTotal
+FROM productos p
+JOIN inventario_tienda i ON p.id_producto = i.id_producto
+GROUP BY p.id_producto, p.nombre
+ORDER BY stockTotal DESC;
+
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

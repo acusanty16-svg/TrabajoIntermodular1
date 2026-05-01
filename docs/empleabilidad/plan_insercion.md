@@ -184,6 +184,3 @@ La búsqueda de empleo puede ser larga. Alguns consejos:
 5. **Pide ayuda** - family, amigos, mentores
 
 ---
-
-**Fecha de creación**: Mayo 2026
-**Estado**: Documento en desarrollo

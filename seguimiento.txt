@@ -252,3 +252,38 @@ git add . && git commit -m "Fase 6: Documentación de empleabilidad y búsqueda 
 ## Sistema de gestión integral para tienda de informática
 ## con gestión de inventario, clientes, proveedores, ventas e inventario.
 
+## 2026-05-01 - Fase 8: Consultas SQL Avanzadas
+
+## Consultas JOIN (6)
+## - 1. Ventas + Cliente + Tienda
+## - 2. DetalleVenta + Productos + Ventas
+## - 3. Inventario + Productos + Tienda
+## - 4. Productos + ProductosProveedores + Proveedores
+## - 5. Ventas completas (todos los datos)
+## - 6. Productos con mejor margen por proveedor
+
+## Consultas de Búsqueda (6)
+## - 7. Buscar cliente por nombre (LIKE)
+## - 8. Buscar producto por nombre
+## - 9. Productos sin stock
+## - 10. Stock bajo mínimo
+## - 11. Ventas por rango de fechas
+## - 12. Ventas por método de pago
+
+## Consultas de Estadísticas (9)
+## - 13. Top clientes por compras
+## - 14. Tienda con más ventas
+## - 15. Productos más vendidos
+## - 16. Proveedores de un producto
+## - 17. Gasto total por proveedor
+## - 18. Total de ventas por tienda
+## - 19. Promedio de venta
+## - 20. Cantidad total de productos vendidos
+## - 21. Inventario total por producto
+
+## Archivos actualizados:
+## - sql/modelajeSql/techmanage.sql - Añadidas 21 queries con comentarios en español
+## - docs/sistemas/evidencias/evidencias.md - Actualizado con Fase 6
+## - src/README.md - Actualizado con última fecha
+git add . && git commit -m "Fase 6: Añadidas 21 consultas SQL al archivo techmanage.sql" && git push
+

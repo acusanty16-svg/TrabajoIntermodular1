@@ -172,6 +172,3 @@ David Santiago Acuña
 - **Tipografía**: Arial, Calibri o similar, tamaño 11-12pt
 
 ---
-
-**Fecha de creación**: Mayo 2026
-**Estado**: Documento en desarrollo

@@ -34,6 +34,14 @@ public class LoginController implements Initializable {
 
     private void actions() {
         btnIngresar.setOnAction(event->{
+            ArchivoController archivoController = new ArchivoController();
+            archivoController.generarTechManageXML();
+            archivoController.generarClientesXML();
+            archivoController.generarProductosXML();
+            archivoController.generarProveedoresXML();
+            archivoController.generarTiendasXML();
+            archivoController.generarVentasXML();
+
             String usuario = editLogin.getText();
             String password = editPass.getText();
 
@@ -82,40 +90,4 @@ public class LoginController implements Initializable {
     }
 
 }
-/*btnLogin.setOnAction(event ->{
-            Usuario usuarioLogin = DataSet.getLogin(editCorreo.getText(), editPass.getText());
-            if (usuarioLogin!=null) {
-                Stage stage = new Stage();
-                switch (usuarioLogin.getPerfil().toLowerCase()){
-                    case "administrador":
-                        //FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("admin-view.fxml"));
-                        break;
-                    case "cliente":
-                        //FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("cliente-view.fxml"));
-                        break;
 
-                }
-                try {
-                    FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("client-view.fxml"));
-                    Scene scene = new Scene(loader.load());
-                    stage.setScene(scene);
-                    stage.setTitle("Tienda Productos");
-                    stage.show();
-
-                    ((Stage) btnRegistro.getScene().getWindow()).close();
-                } catch (IOException e) {
-                    Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setTitle("Error");
-                    alert.setContentText("La pantalla que se intenta cargar no esta disponible");
-                    alert.show();
-                }
-            } else {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Error");
-                alert.setContentText("Datos incorrectos");
-                alert.show();
-            }
-
-        });
-
-    }*/
