@@ -125,7 +125,7 @@ src/
 │   ├── src/main/java/        # Código Java
 │   ├── src/main/resources/    # FXML
 │   └── pom.xml              # Maven
-├── Programacion/              # ⏳ Pendiente
+├── Programacion/              # ✅ Completado
 └── LenguajeDeMarcas/        # ✅ Completado
     └── *.xml, *.xsd
 ```
@@ -138,4 +138,4 @@ src/
 - **MySQL:** https://dev.mysql.com/ doc/
 - **JAXB:** https://eclipse-ee4j.github.io/jaxb/
 
-**Última actualización:** 2026-05-01 (Fase 6 - Consultas SQL)
+**Última actualización:** 2026-05-02 (Fase 6 - Consultas SQL)
